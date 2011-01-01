@@ -13,9 +13,17 @@
 
 This book covers how to use Git with 30 or so verbs such as `checkout`, `branch`, `remote`, and so on. But because Git was initially a toolkit for a VCS rather than a full user-friendly VCS, it has a bunch of verbs that do low-level work and were designed to be chained together UNIX style or called from scripts. These commands are generally referred to as "plumbing" commands, and the more user-friendly commands are called "porcelain" commands.
 
+## 配管と磁器 ##
+
+この本では、Gitの使い方についてcheckout,branch,remoteといった30以上のコマンドを説明してきました。ですが、Gitは当初ユーザーフレンドリーなVCSというよりはむしろVCSのためのツールキットとして開発されたため、低レベルな仕事をこなす一連のコマンドも持っており、UNIXスタイルなやりかたでチェーンしたり、スクリプトから呼び出せるようにデザインされています。これらの低レベルコマンドは通常 "plumbing" コマンド(直訳:配管コマンド)と呼ばれ、よりユーザーフレンドリーなコマンドは"porcelain"コマンド(直訳:磁器コマンド)と呼ばれます。
+
 The book’s first eight chapters deal almost exclusively with porcelain commands. But in this chapter, you’ll be dealing mostly with the lower-level plumbing commands, because they give you access to the inner workings of Git and help demonstrate how and why Git does what it does. These commands aren’t meant to be used manually on the command line, but rather to be used as building blocks for new tools and custom scripts.
 
+この本の1〜8章ではほぼ磁器コマンドだけを扱ってきました。この章ではほとんどの場合低レベルな配管コマンドを扱うことになります。というのも、配管コマンドを使えばGitの内部作業へアクセスでき、Gitが何をどういった理由で、またどのように行っているかをデモンストレーションすることの助けにもなるからです。これらのコマンドはコマンドラインから手で打ち込むような使い方は意図されてはいませんが、新しいツールやカスタムスクリプトのためのビルディングブロックとして有用なものです。
+
 When you run `git init` in a new or existing directory, Git creates the `.git` directory, which is where almost everything that Git stores and manipulates is located. If you want to back up or clone your repository, copying this single directory elsewhere gives you nearly everything you need. This entire chapter basically deals with the stuff in this directory. Here’s what it looks like:
+
+新規、または既存のディレクトリで `git init` を実行すると、Gitは `.git` という名前のディレクトリを作成します。`.git`ディレクトリはGitが保管、操作するほとんど全てのものが入るディレクトリです。レポジトリのバックアップや複製（訳注:`git clone`コマンドによるcloneではなく、レポジトリ全体の複製という意味)が欲しい場合は、このディレクトリだけを他の場所にコピーするだけでほとんどすべての要求を満たすことができます。この章では総じてこのディレクトリの内容を扱うことになります。`.git`ディレクトリは以下になります。
 
 	$ ls 
 	HEAD
